@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>com.xm.spring.demo</artifactId>
+        <groupId>com.xm.spring</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>web</artifactId>
+
+    <!-- 将packaging值（默认：jar)调整成war -->
+    <!-- war包需要放在tomcat，netty等容器上执行 -->
+    <packaging>war</packaging>
+
+    <dependencies>
+        <!-- 依赖persistent -->
+        <dependency>
+            <groupId>com.xm.spring</groupId>
+            <artifactId>persistent</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <!-- web作为主工程 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 多模块化添加main class -->
+                <configuration>
+                    <mainClass>com.xm.spring.demo.DemoApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

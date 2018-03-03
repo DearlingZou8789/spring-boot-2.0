@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.xm.spring</groupId>
+	<artifactId>com.xm.spring.demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<modules>
+		<module>web</module>
+		<module>persistent</module>
+		<module>model</module>
+	</modules>
+	<packaging>pom</packaging>
+
+	<name>com.xm.spring.demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from com.xm.spring.demo.repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<!-- 修改成pom -->
+	<!--
+			模型层:model
+			持久层:persistence
+			表示层:web
+			web依赖于persistent,persistent依赖于model
+	-->
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring Boot Web-Flux -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<!-- Spring Boot Web-MVC,这里是单独MVC，需要注释后才能使用WebFlux -->
+		<!-- 如果有Spring Boot Web,这里RequestParam可以正常使用 -->
+		<!--<dependency>-->
+		<!--<groupId>org.springframework.boot</groupId>-->
+		<!--<artifactId>spring-boot-starter-web</artifactId>-->
+		<!--<version>RELEASE</version>-->
+		<!--</dependency>-->
+	</dependencies>
+
+
+</project>
